@@ -3,6 +3,14 @@
 ## Generar Token
 - **Ruta**: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/GenerateToken```
 - **Método**: POST
+- **Payload**
+```json
+{
+  "DeviceId": id dispositivo (str) (random) "xxxxxxxxxxxxxxxx",
+  "Password": "mob_ORTSecundario2016!",
+  "PlatformId": 0
+}
+```
 -**Respuesta**
 ```json
 {
@@ -135,15 +143,108 @@ Ruta: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login```
     "ListPeriodos": [
       {
         "CDCicloLectivo": año (str) Ej: "2024",
-        "CDPeriodo": id periodo (int) Ej: 16,
+        "CDPeriodo": código periodo (int) Ej: 16,
         "DSPeriodo": nombre (str) Ej: "Bimestre 1",
         "ListPeriodos": null
       },
       {
         "CDCicloLectivo": año (str) Ej: "2024",
-        "CDPeriodo": id periodo (int) Ej: 20,
+        "CDPeriodo": código periodo (int) Ej: 20,
         "DSPeriodo": nombre (str) Ej: "Cuatrimestre 1",
         "ListPeriodos": null
+      }
+    ]
+  }
+}
+```
+## Calificaciones
+- **Ruta**: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/Scores/UserCode=idUsuario/CodPeriod=16```
+- **Método**: GET
+- **Respuesta**
+```json
+{
+  "Codigo": 200,
+  "Descripcion": "",
+  "Calificaciones": {
+    "Ciclo": año (int) Ej: 2024,
+    "ListCalificacionesDetalle": [
+      {
+        "CDPeriodo": codigoPeriodo (int),
+        "CDTipoCalificacion": 2,
+        "DSCalificacion": "M",
+        "Descripcion": "Adeuda tareas y/o no comple con los plazos de entrega.",
+        "ListCalificaciones": null
+      },
+      {
+        "CDPeriodo": codigoPeriodo (int),
+        "CDTipoCalificacion": 2,
+        "DSCalificacion": "N",
+        "Descripcion": "Adeuda contenidos de aprendizaje.",
+        "ListCalificaciones": null
+      },
+      {
+        "CDPeriodo": codigoPeriodo (int),
+        "CDTipoCalificacion": 2,
+        "DSCalificacion": "O",
+        "Descripcion": "Baja participación en las clases.",
+        "ListCalificaciones": null
+      },
+      {
+        "CDPeriodo": codigoPeriodo (int),
+        "CDTipoCalificacion": 3,
+        "DSCalificacion": "P",
+        "Descripcion": "Incrementar la participación activa en las clases.",
+        "ListCalificaciones": null
+      },
+      {
+        "CDPeriodo": codigoPeriodo (int),
+        "CDTipoCalificacion": 3,
+        "DSCalificacion": "Q",
+        "Descripcion": "Incrementar el estudio cumpliendo en tiempo y forma con el trabajo en la asignatura.",
+        "ListCalificaciones": null
+      },
+      {
+        "CDPeriodo": codigoPeriodo (int),
+        "CDTipoCalificacion": 3,
+        "DSCalificacion": "R",
+        "Descripcion": "Cumplir con las consignas y/o indicaciones  complementarias propuestas por su docente (revisión y entrega de trabajos, resolución de nuevas actividades, asistencia a clases de consulta, entre otras).",
+        "ListCalificaciones": null
+      }
+    ],
+    "NotaFinal": 0,
+    "NotaFinalDescripcion": null,
+    "Periodos": [
+      {
+        "Materias": [
+          {
+            "Calificaciones": [
+              { "Descripcion": "Nota", "Id": 1, "Nota": numero / letra (str) },
+              { "Descripcion": "Obs.", "Id": 2, "Nota": letra (str) },
+              { "Descripcion": "Sug.", "Id": 3, "Nota": letra (str) }
+            ],
+            "Materia": {
+              "Id": id materia (int),
+              "Nombre": nombre materia (str) Ej: "MATEMATICA",
+              "NombreCorto": nombre corto¿? materia (str) Ej: "MATEMATICA"
+            }
+          },
+          {
+            "Calificaciones": [
+              { "Descripcion": "Nota", "Id": 1, "Nota": numero / letra (str) },
+              { "Descripcion": "Obs.", "Id": 2, "Nota": letra (str) },
+              { "Descripcion": "Sug.", "Id": 3, "Nota": letra (str) }
+            ],
+            "Materia": {
+              "Id": id materia (int),
+              "Nombre": nombre materia (str) Ej: "LENGUA Y LITERATURA",
+              "NombreCorto": nombre corto¿? materia (str) Ej: "LENGUA Y LITERATURA"
+            }
+          }
+        ],
+        "Periodo": {
+            "Codigo": codigoPeriodo (int),
+            "Descripcion": bimestre / cuatrimestre (str) Ej: "Cuatrimestre 1"
+        }
       }
     ]
   }
