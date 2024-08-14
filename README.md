@@ -49,7 +49,7 @@ Ruta: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login```
         "Documento": documento (str),
         "Email": null,
         "EstadoId": 0,
-        "FechaNacimiento": "/Date(-62135586000000-0300)/",
+        "FechaNacimiento": Fecha Nacimiento (str) Ej: "/Date(-00000000000000-0300)/",
         "Folio": null,
         "GeneroId": "\u0000" (genero(?)),
         "Libro": null,
