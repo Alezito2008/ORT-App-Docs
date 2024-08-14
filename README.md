@@ -1,7 +1,9 @@
 # ORT App Docs
 
-## /WcfSecundarioRest_v2.0/SecundarioRest.svc/GenerateToken 
--**Payload**
+## Generar Token
+- **Ruta**: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/GenerateToken```
+- **Método**: POST
+-**Respuesta**
 ```json
 {
   "Codigo": 200,
@@ -13,7 +15,9 @@
 
 ***HAY QUE PONER EN HEADERS EL TOKEN EN EL ATRIBUTO "Authorization"*** PARA TODOS LOS REQUESTS
 
-##  /WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login
+## Login
+Ruta: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login```
+- **Método**: POST
 - **Payload**
 ```json
 {
@@ -23,7 +27,7 @@
 }
 ```
 - **Respuestas**
-Correcto:
+**Correcto**:
 ```json
 {
   "Codigo": 200,
@@ -57,7 +61,7 @@ Correcto:
   }
 }
 ```
-Incorrecto:
+**Incorrecto**:
 ```json
 {
   "Codigo":512,
@@ -66,4 +70,54 @@ Incorrecto:
 }
 ```
 
-## 
+## Inasistencias
+- **Ruta**: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/Assistance/UserCode=idUsuario```
+- **Método**: GET
+- **Respuesta**
+```json
+{
+  "Codigo": 200,
+  "Descripcion": "",
+  "Inasistencias": {
+    "CreditosTotales": inasistencias totales (default 15) (int),
+    "CreditosUtilizados": inasistencias (int) ,
+    "FechaLibre": "-",
+    "Materias": null,
+    "Reincorporacion": 0
+  }
+}
+
+```
+## Inasistencias Detalle
+- **Ruta**: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/InasistenciaDetalle/UserCode=idUsuario/MatterCode=0```
+- **Método**: GET
+- **Respuesta**
+```json
+{
+  "Codigo": 200,
+  "Descripcion": "",
+  "InasistenciaDetalle": {
+    "DSFalta": null,
+    "DTFechaLibre": null,
+    "Id": 0,
+    "ListInas": [
+      {
+        "DSFalta": Cantidad (str) Ej: "1",
+        "DTFechaLibre": Fecha (str) Ej:"14/08/2024",
+        "Id": idFalta (int),
+        "ListInas": null,
+        "rimd": ""
+      },
+      {
+        "DSFalta": Cantidad (str) Ej: "0.5",
+        "DTFechaLibre": Fecha (str) Ej:"12/08/2024",
+        "Id": idFalta (int),
+        "ListInas": null,
+        "rimd": ""
+      },
+    ],
+    "rimd": null
+  }
+}
+```
+
