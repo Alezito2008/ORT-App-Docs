@@ -120,4 +120,32 @@ Ruta: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login```
   }
 }
 ```
-
+## Periodos
+- **Ruta**: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/PeriodosAlumno/UserCode=idUsuario```
+- **Método**: GET
+- **Respuesta**
+```json
+{
+  "Codigo": 200,
+  "Descripcion": "",
+  "Periodos": {
+    "CDCicloLectivo": null,
+    "CDPeriodo": 0,
+    "DSPeriodo": null,
+    "ListPeriodos": [
+      {
+        "CDCicloLectivo": año (str) Ej: "2024",
+        "CDPeriodo": id periodo (int) Ej: 16,
+        "DSPeriodo": nombre (str) Ej: "Bimestre 1",
+        "ListPeriodos": null
+      },
+      {
+        "CDCicloLectivo": año (str) Ej: "2024",
+        "CDPeriodo": id periodo (int) Ej: 20,
+        "DSPeriodo": nombre (str) Ej: "Cuatrimestre 1",
+        "ListPeriodos": null
+      }
+    ]
+  }
+}
+```
