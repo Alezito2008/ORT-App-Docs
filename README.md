@@ -21,7 +21,7 @@
 }
 ```
 
-***HAY QUE PONER EN HEADERS EL TOKEN EN EL ATRIBUTO "Authorization"*** PARA TODOS LOS REQUESTS
+HAY QUE PONER EN HEADERS EL TOKEN EN EL ATRIBUTO "Authorization" **PARA TODOS LOS REQUESTS**
 
 ## Login
 Ruta: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login```
@@ -49,7 +49,7 @@ Ruta: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login```
         "Documento": documento (str),
         "Email": null,
         "EstadoId": 0,
-        "FechaNacimiento": Fecha Nacimiento (str) Ej: "/Date(-00000000000000-0300)/",
+        "FechaNacimiento": "/Date(-62135586000000-0300)/",
         "Folio": null,
         "GeneroId": "\u0000" (genero(?)),
         "Libro": null,
@@ -245,6 +245,38 @@ Ruta: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/User/Login```
             "Codigo": codigoPeriodo (int),
             "Descripcion": bimestre / cuatrimestre (str) Ej: "Cuatrimestre 1"
         }
+      }
+    ]
+  }
+}
+```
+## Sanciones
+- **Ruta**: ```/WcfSecundarioRest_v2.0/SecundarioRest.svc/Sanciones/UserCode=idUsuario```
+- **Método**: GET
+- **Respuesta**
+```json
+{
+  "Codigo": 200,
+  "Descripcion": "",
+  "Sanciones": {
+    "DSMotivo": null,
+    "DSTipoSancion": null,
+    "DTFecha_Sancion": null,
+    "Id": 0,
+    "ListSanciones": [
+      {
+        "DSMotivo": motivo (str),
+        "DSTipoSancion": tipo (str) Ej: "Apercibimiento Escrito",
+        "DTFecha_Sancion": fecha (str) Ej: "10/3/2024",
+        "Id": id sancion (int),
+        "ListSanciones": null
+      },
+      {
+        "DSMotivo": motivo (str),
+        "DSTipoSancion": tipo (str) Ej: "Apercibimiento Escrito",
+        "DTFecha_Sancion": fecha (str) Ej: "10/3/2024",
+        "Id": id sancion (int),
+        "ListSanciones": null
       }
     ]
   }
